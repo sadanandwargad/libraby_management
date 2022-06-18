@@ -1,0 +1,33 @@
+{% extends 'main.html' %}
+ 
+{% block content %}
+{% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'login/home_style.css' %}">
+    <table>
+        <caption class="caption-section"><span style='font-size: x-large'>Books<span>
+            <ul style='float:right'>
+                <a href="{% url 'create-book' %}">
+                    <button class="btn"><i class="fa fa-plus"></i> Add book</button>
+                </a>
+            </ul>
+        </caption>
+        <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Action</th>
+        </tr>
+        {% for book in books  %}
+        <tr>
+        <td>{{book.id}}</td>
+        <td>{{book.name}}</td>
+        <td><a href={% url 'view-book' book.id %}> <button class="btn" title="View"><i class="fa fa-eye"></i> </button></a>
+            {% if  request.user == book.admin %}
+            <a href={% url 'update-book' book.id %}><button class="btn" title="Edit"><i class="fa fa-pencil"></i> </button></a>
+            <a href={% url 'delete-book' book.id %}><button class="btn" title="Delete"><i class="fa fa-trash-o"></i> </button></a>
+        {% endif %}
+        </td>
+        </tr>
+        {% endfor %}
+    </table>
+        
+{% endblock content %}

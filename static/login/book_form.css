@@ -1,0 +1,23 @@
+.container {
+    padding: 16px;
+  }
+input[type=text]:focus{
+background-color: #ddd;
+outline: none;
+}
+input[type=text], textarea{
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+  }
+.cancelbtn {
+padding: 9px 20px;
+background-color: #e0b8b6;
+}
+.primarybtn {
+    padding: 9px 20px;
+    background-color: #228df8;
+    }

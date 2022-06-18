@@ -1,0 +1,37 @@
+
+<style>
+    .home-container{
+        display:grid;
+        grid-template-columns: 10fr  2fr;
+    }
+    .search-div{
+        margin-top: 33px;
+        margin-left: 72px;
+    }
+    .btn {
+        background-color: DodgerBlue;
+        border: none;
+        color: white;
+        padding: 9px 15px;
+        font-size: 15px;
+        cursor: pointer;
+      }
+</style>
+<div class='home-container' >
+    <div>
+        <a href='/'>
+            <h1><i class="fa fa-book" aria-hidden="true"></i> Library Management System</h1>
+        </a>
+    </div>
+    
+    <div class='user-login-logout'>
+        {% if request.user.is_authenticated %}
+            <p><i class="fa fa-user"></i> {{ user.email }}</p>
+            <a href="{% url 'logout' %}"><button class="btn"><i class="fa fa-sign-out"></i>Logout</button></a>
+        {% else %}
+            <a href="{% url 'login' %}"><button class="btn"><i class="fa fa-sign-in"></i>Login</button></a>
+        {% endif %}
+    </div>
+</div>
+
+<hr>

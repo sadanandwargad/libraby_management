@@ -1,0 +1,28 @@
+{% extends 'main.html' %}
+{% load widget_tweaks %}
+{% block  content%}
+{% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'login/book_form.css' %}">
+    
+<form method="POST" action="" style="border:1px solid #ccc">
+    <div class="container">
+        {% csrf_token %}
+        <div class="form-group">
+        {% render_field form.name|add_class:"css_class_1 css_class_2" type="text" class="form-control" id="exampleInputName" placeholder="Name" %}
+        </div>
+        
+        <div class="form-group">
+        {% render_field form.author type="text" class="form-control" id="exampleInputAuthor" placeholder="Author" %}
+        </div>
+        
+        <div class="form-group">
+        {% render_field form.content type="text" class="form-control" id="exampleInputContent" placeholder="Content" %}
+        </div>
+        
+        <div class="clearfix">
+        <a href={% url 'home' %}><button type="button" class="cancelbtn">Cancel</button></a>
+        <button type="submit" class="primarybtn">Create</button> 
+        </div>
+    </div>
+</form>
+{% endblock content %}

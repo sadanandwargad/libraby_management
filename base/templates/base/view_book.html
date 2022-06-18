@@ -1,0 +1,29 @@
+{% extends 'main.html' %}
+
+{% block content %}
+{% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'login/view_book_style.css' %}">
+        <body>
+        <header>
+          <h2>{{ book.name }}</h2>
+        </header>
+        
+        <section>
+          <nav>
+            <ul>
+              <li<i class="fa fa-user-o" aria-hidden="true"></i> {{ book.author }}</li>
+            </ul>
+          </nav>
+          
+          <article>
+            <h1>{{ book.name }}</h1>
+            <p>{{ book.content }}</p>
+          </article>
+        </section>
+        
+        <footer>
+          <p><a href={% url 'home' %}><i class="fa fa-home" aria-hidden="true"></i> Home</a></p>
+        </footer>
+        
+        </body>
+{% endblock content %}

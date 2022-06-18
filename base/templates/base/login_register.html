@@ -1,0 +1,60 @@
+{% extends 'main.html' %}
+{% block content %}
+{% load static %}
+{% if page == 'login'  %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'login/login_style.css' %}">
+<h2>Login Form</h2>
+    <form action="" method="post">
+        {%csrf_token%}
+      
+        <div class="container">
+          <label for="email"><b>Username</b></label>
+          <input type="text" placeholder="Enter Username" name="email" required>
+      
+          <label for="password"><b>Password</b></label>
+          <input type="password" placeholder="Enter Password" name="password" required>
+              
+          <button type="submit" value="Login">Login</button>
+        </div>
+      
+        <div class="container" style="background-color:#f1f1f1">
+          
+          <span class="psw">haven't signed up yet?<a href="{% url 'register' %}"> sign up</a></span>
+        </div>
+      </form>
+{% else %}
+{% load widget_tweaks %}
+<link rel="stylesheet" type="text/css" href="{% static 'login/register_style.css' %}">
+    <form method="POST" action="" style="border:1px solid #ccc">
+        <h1>Sign Up</h1>
+        <div class="container">
+            {% csrf_token %}
+            
+            {{ form.password1.errors }}
+            <div class="form-group">
+            {% render_field form.email|add_class:"css_class_1 css_class_2" type="text" class="form-control" id="exampleInputEmail" placeholder="Email" %}
+            </div>
+
+            {{ form.password1.errors }}
+            <div class="form-group">
+            {% render_field form.password1 type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" %}
+            </div>
+            
+            {{ form.password2.errors }}
+            <div class="form-group">
+            {% render_field form.password2 type="password" class="form-control" id="exampleInputpassword2" placeholder="Confirm Password" %}
+            </div>
+            
+            <div class="clearfix">
+            <a href={% url 'home' %}><button type="button" class="cancelbtn">Cancel</button></a>
+            <button type="submit" class="primarybtn">Sign Up</button> 
+            </div>
+        </div>
+        <div class="container" style="background-color:#f1f1f1">
+          
+            <span class="psw">Already signed up?<a href="{% url 'login' %}"> Login</a></span>
+          </div>
+    </form>
+{% endif %}
+{% endblock content %}
