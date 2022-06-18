@@ -21,10 +21,15 @@ Features of this project:
         6. Delete a book.
 ________________________________________________________________________________________________________________________
 
-base app
+base app:
 
-This is our main app where we will write our library system's main logic. It comprises of 2 models:
+    This is our main app where we will write our library system's main logic. It comprises of 2 models:
 
-User - Custome user model for storing email as username & password  of admin user
-Book - for storing name , Author ,category of a book & connecting to the admin
+        User - Custome user model for storing email as username & password  of admin user
+        Book - for storing name , Author ,category of a book & connecting to the admin
 
+Django rest api:
+    2 apis for :
+        1.get all books records
+        
+        2.get single book record
